@@ -97,7 +97,8 @@ with tab1:
 
 with tab2:
     st.subheader("Simulator Validation: Analytical vs Numerical")
-    st.markdown("PSET #02의 1D 해석적 해(Analytical)와 현재 2D 시뮬레이터의 중심축(y=W/2) 압력 비교")
+    # PSET 단어를 빼고 '고전적'이라는 말로 수정
+    st.markdown("고전적 1D 해석적 해(Analytical)와 현재 2D 시뮬레이터의 중심축(y=W/2) 압력 비교")
     
     fig2, ax = plt.subplots(figsize=(8, 4))
     
@@ -109,7 +110,8 @@ with tab2:
     P_analytic = (6 * eta_0 * U_wafer * L / (h1**2 - h2**2)) * ((h1 - h_1d) * (h_1d - h2) / h_1d**2)
     P_analytic[P_analytic < 0] = 0
     
-    ax.plot(x, P_analytic, 'k--', linewidth=2, label="1D Analytical (PSET 2)")
+    # 범례(label)에서 (PSET 2) 삭제
+    ax.plot(x, P_analytic, 'k--', linewidth=2, label="1D Analytical")
     ax.plot(x, P_f[Ny//2, :], 'b-', linewidth=2, label="2D Numerical (Centerline)")
     ax.set_xlabel("x-position (m)")
     ax.set_ylabel("Fluid Pressure (Pa)")
